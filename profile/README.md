@@ -35,24 +35,32 @@ Placeholder: TieTech Innovations builds ___. We focus on ___ for ___.
 ## 📊 Commit activity
 
 <!-- STATS:START -->
-In the last 7 days: **26** commits across **3/51** active repos.
+In the last 56 days: **97** commits across **7/51** active repos.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/commit-graph-dark.png">
+  <img alt="Commits per day, last 8 weeks" src="assets/commit-graph-light.png">
+</picture>
 
 **Most active repos**
 
-- `ledger-pro-backend` — 14 commits
-- `.github` — 8 commits
-- `ledger-pro` — 4 commits
+- `ledger-pro-backend` — 30 commits
+- `staff_complaint_mobile` — 21 commits
+- `user_complaint_mobile` — 16 commits
+- `.github` — 11 commits
+- `ledger-pro` — 8 commits
 
-**Top contributors this week**
+**Top contributors**
 
-- majidimtiaz3 — 12 commits
-- ZainMustafaaa — 8 commits
-- sanaejaz — 4 commits
-- abdullahumar2002 — 2 commits
+- majidimtiaz3 — 51 commits
+- abdullahumar2002 — 27 commits
+- ZainMustafaaa — 10 commits
+- sanaejaz — 8 commits
+- github-actions[bot] — 1 commit
 
 **Primary languages**: `JavaScript`, `TypeScript`, `Python`, `Solidity`, `Kotlin`
 <!-- STATS:END -->
 
 <div align="center">
-<sub>Last updated: 2026-07-22 22:27 UTC</sub>
+<sub>Last updated: 2026-07-22 22:33 UTC</sub>
 </div>
