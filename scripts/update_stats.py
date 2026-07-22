@@ -108,6 +108,7 @@ def build_stats(org, token):
 
     repos = list_org_repos(org, token)
     repos = [r for r in repos if not r.get("archived")]
+    private_repos = sum(1 for r in repos if r.get("private"))
 
     commit_counts = Counter()
     author_counts = Counter()
@@ -147,6 +148,7 @@ def build_stats(org, token):
     return {
         "since": since,
         "total_repos": len(repos),
+        "private_repos": private_repos,
         "active_repos": active_repos,
         "total_commits": total_commits,
         "top_repos": commit_counts.most_common(TOP_REPOS),
@@ -198,7 +200,8 @@ def render_section(stats):
     lines = []
     lines.append(
         f"In the last {GRAPH_DAYS} days: **{stats['total_commits']}** commits "
-        f"across **{stats['active_repos']}/{stats['total_repos']}** active repos.\n"
+        f"across **{stats['active_repos']}/{stats['total_repos']}** active repos "
+        f"(**{stats['private_repos']}** private).\n"
     )
 
     lines.append(
