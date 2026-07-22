@@ -7,20 +7,47 @@ Requires env vars:
 """
 import os
 import sys
-import time
 import urllib.request
 import json
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
 API = "https://api.github.com"
-LOOKBACK_DAYS = 7
+GRAPH_DAYS = 56  # 8 weeks
 TOP_REPOS = 5
 TOP_LANGS = 5
 
-README_PATH = os.path.join(os.path.dirname(__file__), "..", "profile", "README.md")
+PROFILE_DIR = os.path.join(os.path.dirname(__file__), "..", "profile")
+README_PATH = os.path.join(PROFILE_DIR, "README.md")
+ASSETS_DIR = os.path.join(PROFILE_DIR, "assets")
+CHART_LIGHT_PATH = os.path.join(ASSETS_DIR, "commit-graph-light.png")
+CHART_DARK_PATH = os.path.join(ASSETS_DIR, "commit-graph-dark.png")
 START_MARK = "<!-- STATS:START -->"
 END_MARK = "<!-- STATS:END -->"
+
+# dataviz reference palette (references/palette.md): sequential blue, chart chrome & ink
+CHART_THEME = {
+    "light": {
+        "bar": "#2a78d6",
+        "surface": "#fcfcfb",
+        "text_primary": "#0b0b0b",
+        "text_muted": "#898781",
+        "grid": "#e1e0d9",
+        "baseline": "#c3c2b7",
+    },
+    "dark": {
+        "bar": "#3987e5",
+        "surface": "#1a1a19",
+        "text_primary": "#ffffff",
+        "text_muted": "#c3c2b7",
+        "grid": "#2c2c2a",
+        "baseline": "#383835",
+    },
+}
 
 
 def gh_request(path, token, params=None):
@@ -75,8 +102,9 @@ def list_recent_commits(org, repo, token, since_iso):
 
 
 def build_stats(org, token):
-    since = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
+    since = datetime.now(timezone.utc) - timedelta(days=GRAPH_DAYS)
     since_iso = since.strftime("%Y-%m-%dT%H:%M:%SZ")
+    since_date = since.date()
 
     repos = list_org_repos(org, token)
     repos = [r for r in repos if not r.get("archived")]
@@ -84,6 +112,7 @@ def build_stats(org, token):
     commit_counts = Counter()
     author_counts = Counter()
     lang_counts = Counter()
+    daily_counts = Counter()
     total_commits = 0
     active_repos = 0
 
@@ -107,6 +136,14 @@ def build_stats(org, token):
             if author:
                 author_counts[author] += 1
 
+            date_str = c.get("commit", {}).get("author", {}).get("date")
+            if date_str:
+                commit_date = datetime.strptime(date_str[:10], "%Y-%m-%d").date()
+                daily_counts[commit_date] += 1
+
+    days = [since_date + timedelta(days=i) for i in range(GRAPH_DAYS + 1)]
+    series = [daily_counts.get(d, 0) for d in days]
+
     return {
         "since": since,
         "total_repos": len(repos),
@@ -115,14 +152,60 @@ def build_stats(org, token):
         "top_repos": commit_counts.most_common(TOP_REPOS),
         "top_authors": author_counts.most_common(TOP_REPOS),
         "top_langs": lang_counts.most_common(TOP_LANGS),
+        "days": days,
+        "daily_series": series,
     }
+
+
+def render_chart(days, series, path, theme):
+    fig, ax = plt.subplots(figsize=(9, 2.6), dpi=200)
+    fig.patch.set_facecolor(theme["surface"])
+    ax.set_facecolor(theme["surface"])
+
+    ax.bar(days, series, width=0.8, color=theme["bar"], linewidth=0, zorder=3)
+
+    ax.set_ylim(bottom=0)
+    ax.yaxis.grid(True, color=theme["grid"], linewidth=0.8, zorder=0)
+    ax.set_axisbelow(True)
+
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    ax.spines["bottom"].set_visible(True)
+    ax.spines["bottom"].set_color(theme["baseline"])
+    ax.spines["bottom"].set_linewidth(1)
+
+    ax.tick_params(axis="both", length=0, labelsize=8, colors=theme["text_muted"])
+    ax.set_yticks([t for t in ax.get_yticks() if t == int(t)])
+
+    week_ticks = days[::7]
+    ax.set_xticks(week_ticks)
+    ax.set_xticklabels([d.strftime("%b %d") for d in week_ticks], color=theme["text_muted"])
+
+    ax.set_title(
+        f"Commits per day — last {GRAPH_DAYS} days",
+        loc="left",
+        fontsize=10,
+        color=theme["text_primary"],
+        pad=10,
+    )
+
+    fig.tight_layout()
+    fig.savefig(path, facecolor=theme["surface"], bbox_inches="tight")
+    plt.close(fig)
 
 
 def render_section(stats):
     lines = []
     lines.append(
-        f"In the last {LOOKBACK_DAYS} days: **{stats['total_commits']}** commits "
+        f"In the last {GRAPH_DAYS} days: **{stats['total_commits']}** commits "
         f"across **{stats['active_repos']}/{stats['total_repos']}** active repos.\n"
+    )
+
+    lines.append(
+        '<picture>\n'
+        '  <source media="(prefers-color-scheme: dark)" srcset="assets/commit-graph-dark.png">\n'
+        '  <img alt="Commits per day, last 8 weeks" src="assets/commit-graph-light.png">\n'
+        '</picture>\n'
     )
 
     if stats["top_repos"]:
@@ -133,7 +216,7 @@ def render_section(stats):
         lines.append("")
 
     if stats["top_authors"]:
-        lines.append("**Top contributors this week**")
+        lines.append("**Top contributors**")
         lines.append("")
         for author, count in stats["top_authors"]:
             lines.append(f"- {author} — {count} commit{'s' if count != 1 else ''}")
@@ -177,9 +260,14 @@ def main():
         sys.exit(1)
 
     stats = build_stats(org, token)
+
+    os.makedirs(ASSETS_DIR, exist_ok=True)
+    render_chart(stats["days"], stats["daily_series"], CHART_LIGHT_PATH, CHART_THEME["light"])
+    render_chart(stats["days"], stats["daily_series"], CHART_DARK_PATH, CHART_THEME["dark"])
+
     section = render_section(stats)
     update_readme(section)
-    print("README stats section updated.")
+    print("README stats section and commit graph updated.")
 
 
 if __name__ == "__main__":

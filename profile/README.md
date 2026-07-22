@@ -32,7 +32,7 @@ Placeholder: TieTech Innovations builds ___. We focus on ___ for ___.
 
 ---
 
-## 📊 Recent activity
+## 📊 Commit activity
 
 <!-- STATS:START -->
 _Stats have not been generated yet. This section is populated automatically by the `update-stats` workflow._
