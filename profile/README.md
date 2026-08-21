@@ -35,7 +35,7 @@ Placeholder: TieTech Innovations builds ___. We focus on ___ for ___.
 ## 📊 Commit activity
 
 <!-- STATS:START -->
-In the last 56 days: **136** commits across **9/53** active repos (**52** private).
+In the last 56 days: **131** commits across **9/53** active repos (**52** private).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/commit-graph-dark.png">
@@ -44,16 +44,16 @@ In the last 56 days: **136** commits across **9/53** active repos (**52** privat
 
 **Most active repos**
 
-- `ledger-pro-backend` — 44 commits
-- `.github` — 23 commits
+- `ledger-pro-backend` — 42 commits
+- `.github` — 24 commits
 - `chatbot-saas` — 18 commits
-- `staff_complaint_mobile` — 17 commits
-- `user_complaint_mobile` — 13 commits
+- `staff_complaint_mobile` — 14 commits
+- `user_complaint_mobile` — 12 commits
 
 **Top contributors**
 
-- abdullahumar2002 — 40 commits
-- majidimtiaz3 — 39 commits
+- abdullahumar2002 — 37 commits
+- majidimtiaz3 — 36 commits
 - ZainMustafaaa — 28 commits
 - MajidImtiaz — 10 commits
 - sanaejaz — 10 commits
@@ -62,5 +62,5 @@ In the last 56 days: **136** commits across **9/53** active repos (**52** privat
 <!-- STATS:END -->
 
 <div align="center">
-<sub>Last updated: 2026-08-14 16:54 UTC</sub>
+<sub>Last updated: 2026-08-21 16:35 UTC</sub>
 </div>
