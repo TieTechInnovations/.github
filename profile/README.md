@@ -2,9 +2,11 @@
 
 # TieTech Innovations
 
-_One-line mission statement goes here._
+**We build the technology shaping what's next.**
 
-[Website](https://tietech.co) · [GitHub](https://github.com/TieTechInnovations) · [Contact](mailto:hello@tietech.co)
+_AI, DevOps & Product Engineering_
+
+[Website](https://tietech.co) · [LinkedIn](https://www.linkedin.com/company/tietech-innovations/) · [GitHub](https://github.com/TieTechInnovations) · [Contact](mailto:info@tietech.co)
 
 </div>
 
@@ -12,23 +14,40 @@ _One-line mission statement goes here._
 
 ## About
 
-<!-- TODO: 2-4 sentence company blurb — what you build, who it's for, what makes it different. -->
+TieTech Innovations creates AI-powered products, intelligent agents, and production-ready software that solve real business problems. We engineer AI products and the infrastructure behind them.
 
-Placeholder: TieTech Innovations builds ___. We focus on ___ for ___.
+From AI and automation to backend engineering, cloud infrastructure, and DevOps, we turn ambitious ideas into reliable, scalable products for startups and enterprises.
+
+We work as small, senior teams that own a problem end to end, from architecture and delivery through deployment, monitoring, and on-call support. An engineering team, not an agency of generalists.
+
+## What we do
+
+- **AI & ML Engineering** — machine learning, LLM integration, RAG pipelines, and AI-driven platforms
+- **DevOps & Infrastructure** — cloud architecture, containerisation, infrastructure as code, CI/CD, monitoring, and on-call support
+- **Software Development** — full-stack web and mobile applications
+- **Blockchain Development** — smart contracts and decentralised applications
+- **Design** — UX/UI, prototyping, and 3D & visual design
+- **Quality Assurance** — testing and release validation
+
+## Industries
+
+Healthcare · Fintech · Retail & E-Commerce · Gaming & Metaverse · Logistics · Smart Cities · Manufacturing · Education
 
 ## What we work with
 
-<!-- TODO: trim/edit to your actual stack -->
+| Area | Technologies |
+|---|---|
+| AI / ML | Machine Learning, LLM Integration, RAG, PyTorch, TensorFlow |
+| Infrastructure | AWS, Docker, Kubernetes, Terraform |
+| Languages & frameworks | TypeScript, Python, Go, Rust, Node.js, React, Next.js |
+| Data | PostgreSQL, MongoDB, DynamoDB, Redis |
+| Blockchain | Solidity, Ethereum, Smart Contracts |
 
-`TypeScript` · `Python` · `Go` · `React` · `Node.js` · `PostgreSQL` · `AWS`
+## Work with us
 
-## Team
+Have a product to build or infrastructure to run? Reach us at [info@tietech.co](mailto:info@tietech.co) or visit [tietech.co](https://tietech.co).
 
-<!-- TODO: list founders/leads and links, or link to a team page -->
-
-| Name | Role | Links |
-|---|---|---|
-| Placeholder | Placeholder | [GitHub](#) |
+Follow us on [LinkedIn](https://www.linkedin.com/company/tietech-innovations/) for practical AI insights, real-world case studies, engineering lessons, and a behind-the-scenes look at what we're building.
 
 ---
 
