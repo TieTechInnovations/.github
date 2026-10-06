@@ -22,12 +22,12 @@ We work as small, senior teams that own a problem end to end, from architecture 
 
 ## What we do
 
-- **AI & ML Engineering** — machine learning, LLM integration, RAG pipelines, and AI-driven platforms
-- **DevOps & Infrastructure** — cloud architecture, containerisation, infrastructure as code, CI/CD, monitoring, and on-call support
-- **Software Development** — full-stack web and mobile applications
-- **Blockchain Development** — smart contracts and decentralised applications
-- **Design** — UX/UI, prototyping, and 3D & visual design
-- **Quality Assurance** — testing and release validation
+- **AI & ML Engineering** -  machine learning, LLM integration, RAG pipelines, and AI-driven platforms
+- **DevOps & Infrastructure** -  cloud architecture, containerisation, infrastructure as code, CI/CD, monitoring, and on-call support
+- **Software Development** -  full-stack web and mobile applications
+- **Blockchain Development** -  smart contracts and decentralised applications
+- **Design** -  UX/UI, prototyping, and 3D & visual design
+- **Quality Assurance** -  testing and release validation
 
 ## Industries
 
@@ -63,19 +63,19 @@ In the last 56 days: **293** commits across **9/58** active repos (**57** privat
 
 **Most active repos**
 
-- `chatbot-saas` — 80 commits
-- `social-media-pipeline` — 63 commits
-- `minaya-backend` — 58 commits
-- `minaya-docs` — 27 commits
-- `cold-marketing-agent` — 24 commits
+- `chatbot-saas` -  80 commits
+- `social-media-pipeline` -  63 commits
+- `minaya-backend` -  58 commits
+- `minaya-docs` -  27 commits
+- `cold-marketing-agent` -  24 commits
 
 **Top contributors**
 
-- ZainMustafaaa — 226 commits
-- MajidImtiaz — 16 commits
-- abdullahumar2002 — 13 commits
-- actions — 13 commits
-- sanaejaz — 12 commits
+- ZainMustafaaa -  226 commits
+- MajidImtiaz -  16 commits
+- abdullahumar2002 -  13 commits
+- actions -  13 commits
+- sanaejaz -  12 commits
 
 **Primary languages**: `JavaScript`, `TypeScript`, `Python`, `Solidity`, `Kotlin`
 <!-- STATS:END -->

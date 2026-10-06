@@ -184,7 +184,7 @@ def render_chart(days, series, path, theme):
     ax.set_xticklabels([d.strftime("%b %d") for d in week_ticks], color=theme["text_muted"])
 
     ax.set_title(
-        f"Commits per day — last {GRAPH_DAYS} days",
+        f"Commits per day -  last {GRAPH_DAYS} days",
         loc="left",
         fontsize=10,
         color=theme["text_primary"],
@@ -215,14 +215,14 @@ def render_section(stats):
         lines.append("**Most active repos**")
         lines.append("")
         for name, count in stats["top_repos"]:
-            lines.append(f"- `{name}` — {count} commit{'s' if count != 1 else ''}")
+            lines.append(f"- `{name}` -  {count} commit{'s' if count != 1 else ''}")
         lines.append("")
 
     if stats["top_authors"]:
         lines.append("**Top contributors**")
         lines.append("")
         for author, count in stats["top_authors"]:
-            lines.append(f"- {author} — {count} commit{'s' if count != 1 else ''}")
+            lines.append(f"- {author} -  {count} commit{'s' if count != 1 else ''}")
         lines.append("")
 
     if stats["top_langs"]:
