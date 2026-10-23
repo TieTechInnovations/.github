@@ -54,7 +54,7 @@ Follow us on [LinkedIn](https://www.linkedin.com/company/tietech-innovations/) f
 ## 📊 Commit activity
 
 <!-- STATS:START -->
-In the last 56 days: **343** commits across **10/59** active repos (**58** private).
+In the last 56 days: **328** commits across **10/59** active repos (**58** private).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/commit-graph-dark.png">
@@ -63,23 +63,23 @@ In the last 56 days: **343** commits across **10/59** active repos (**58** priva
 
 **Most active repos**
 
-- `social-media-pipeline` -  89 commits
-- `chatbot-saas` -  82 commits
-- `minaya-backend` -  58 commits
-- `tietech-website` -  28 commits
-- `minaya-docs` -  27 commits
+- `social-media-pipeline` -  96 commits
+- `chatbot-saas` -  65 commits
+- `minaya-backend` -  57 commits
+- `tietech-website` -  25 commits
+- `cold-marketing-agent` -  25 commits
 
 **Top contributors**
 
-- ZainMustafaaa -  271 commits
-- actions -  23 commits
-- sanaejaz -  16 commits
+- ZainMustafaaa -  260 commits
+- actions -  26 commits
 - abdullahumar2002 -  14 commits
-- github-actions[bot] -  8 commits
+- github-actions[bot] -  9 commits
+- sanaejaz -  8 commits
 
 **Primary languages**: `JavaScript`, `TypeScript`, `Python`, `Solidity`, `Kotlin`
 <!-- STATS:END -->
 
 <div align="center">
-<sub>Last updated: 2026-10-16 19:23 UTC</sub>
+<sub>Last updated: 2026-10-23 19:50 UTC</sub>
 </div>
